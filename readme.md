@@ -1,5 +1,5 @@
 ## ETH Gaz Price
-Displays the latest gas price
+Displays the latest gas price (in gwei)
 
 ## Contributing
 Feel free to contribute any code or fork this project. If you have ideas, open up an issue

@@ -69,27 +69,21 @@ function updateDom() {
 }
 
 function addClickListeners() {
-	// Add click listeners
 	let elements = document.getElementsByClassName('js-gasprice');
 	for(let i=0; i<elements.length; i++) {
 		const element = elements[i];
-		// Select option when clicked
 		element.addEventListener('click', selectOption(element.dataset.option));
 	}
 }
 
 function start() {
-	// Show latest data if we have it
 	updateDom();
-
-	// Fetch newest data upon opening
 	chrome.runtime.getBackgroundPage(backgroundPage => {
 		backgroundPage.fetchGasPrice().then(()=>{
-			updateDom(); // Let's try again after data has been fetched
+			updateDom();
 		});
 	});
 
-	// Add click listener to settings button
 	let settingsElement = document.getElementsByClassName('js-settings');
 	settingsElement[0].addEventListener('click', ()=>{
 		chrome.runtime.openOptionsPage();
